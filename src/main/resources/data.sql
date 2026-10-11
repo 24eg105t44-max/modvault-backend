@@ -7,8 +7,8 @@ ON DUPLICATE KEY UPDATE full_name=VALUES(full_name);
 
 -- 2. Insert Vehicles
 INSERT INTO vehicles (id, make, model, year, trim, registration_number, fuel_type, engine_capacity, odometer_km, transmission, is_primary, status_badge, image_url, notes, user_id) VALUES
-(1, 'Honda', 'Civic', 2019, 'Touring', 'TS 09 AB 1234', 'Petrol', '1.8 L', 42350, 'Manual', TRUE, 'Primary', 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=900&q=80', 'Primary daily driver and track project.', 1),
-(2, 'BMW', '330i', 2022, 'M Sport', 'KA 01 CD 5678', 'Petrol', '2.0 L', 18420, 'Automatic', FALSE, 'Secondary', 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80', 'Weekend cruiser and tourer.', 1)
+(1, 'Honda', 'Civic', 2019, 'Touring', 'TS 09 AB 1234', 'Petrol', '1.8 L', 42350, 'Manual', TRUE, 'Primary', '/images/civic-2019.jpg', 'Primary daily driver and track project.', 1),
+(2, 'BMW', '330i', 2022, 'M Sport', 'KA 01 CD 5678', 'Petrol', '2.0 L', 18420, 'Automatic', FALSE, 'Secondary', '/images/bmw-330i.jpg', 'Weekend cruiser and tourer.', 1)
 ON DUPLICATE KEY UPDATE make=VALUES(make);
 
 -- 3. Maintenance Reminders
@@ -29,7 +29,7 @@ ON DUPLICATE KEY UPDATE part_name=VALUES(part_name);
 
 -- 5. Build Plans
 INSERT INTO build_plans (id, title, estimated_cost, progress_percentage, status, image_url, tags, vehicle_id) VALUES
-(1, 'Civic Performance Build', 250000.00, 68, 'In Progress', 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80', 'Engine,Suspension,Wheels & Tyres,Exhaust,Exterior', 1)
+(1, 'Civic Performance Build', 250000.00, 68, 'In Progress', '/images/build-civic.jpg', 'Engine,Suspension,Wheels & Tyres,Exhaust,Exterior', 1)
 ON DUPLICATE KEY UPDATE title=VALUES(title);
 
 -- 6. Recent Activities
@@ -42,6 +42,6 @@ ON DUPLICATE KEY UPDATE title=VALUES(title);
 
 -- 7. Community Posts
 INSERT INTO community_posts (id, author_name, author_car, time_ago, content, image_url, additional_image_url, likes_count, comments_count, is_bookmarked) VALUES
-(1, 'Rohan Mehta', 'BMW 330i', '2 days ago', 'Just got my new M Performance exhaust. The sound is unreal! 🔥', 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80', 124, 18, FALSE),
+(1, 'Rohan Mehta', 'BMW 330i', '2 days ago', 'Just got my new M Performance exhaust. The sound is unreal! 🔥', '/images/community-bmw-rear.jpg', '/images/community-bmw-exhaust.jpg', 124, 18, FALSE),
 (2, 'Sneha Iyer', 'Honda Civic', '3 days ago', 'After 10k km, still loving the reliability of my Civic. What a machine! 🚗', NULL, NULL, 96, 12, FALSE)
 ON DUPLICATE KEY UPDATE author_name=VALUES(author_name);

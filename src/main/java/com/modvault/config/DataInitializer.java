@@ -52,7 +52,15 @@ public class DataInitializer implements CommandLineRunner {
             return;
         }
 
-        // 1. Seed User Geethika
+        // 1. Seed User Geethika with Anurag student email (24eg105t34@anurag.edu.in) and alias
+        User studentUser = new User();
+        studentUser.setFullName("Geethika");
+        studentUser.setEmail("24eg105t34@anurag.edu.in");
+        studentUser.setPassword(passwordEncoder.encode("password123"));
+        studentUser.setAvatarLetter("G");
+        studentUser.setRole("USER");
+        userRepository.save(studentUser);
+
         User geethika = new User();
         geethika.setFullName("Geethika");
         geethika.setEmail("geethika@gmail.com");
@@ -73,7 +81,7 @@ public class DataInitializer implements CommandLineRunner {
         civic.setTransmission("Manual");
         civic.setIsPrimary(true);
         civic.setStatusBadge("Primary");
-        civic.setImageUrl("https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=900&q=80");
+        civic.setImageUrl("/images/civic-2019.jpg");
         civic.setNotes("Primary daily driver and active track-day build project.");
         civic.setUser(geethika);
         civic = vehicleRepository.save(civic);
@@ -89,7 +97,7 @@ public class DataInitializer implements CommandLineRunner {
         bmw.setTransmission("Automatic");
         bmw.setIsPrimary(false);
         bmw.setStatusBadge("Secondary");
-        bmw.setImageUrl("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80");
+        bmw.setImageUrl("/images/bmw-330i.jpg");
         bmw.setNotes("Weekend cruiser and grand tourer.");
         bmw.setUser(geethika);
         bmw = vehicleRepository.save(bmw);
@@ -210,7 +218,7 @@ public class DataInitializer implements CommandLineRunner {
         plan.setEstimatedCost(new BigDecimal("250000"));
         plan.setProgressPercentage(68);
         plan.setStatus("In Progress");
-        plan.setImageUrl("https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80");
+        plan.setImageUrl("/images/build-civic.jpg");
         plan.setTags("Engine,Suspension,Wheels & Tyres,Exhaust,Exterior");
         plan.setVehicle(civic);
         buildPlanRepository.save(plan);
@@ -221,8 +229,8 @@ public class DataInitializer implements CommandLineRunner {
         p1.setAuthorCar("BMW 330i");
         p1.setTimeAgo("2 days ago");
         p1.setContent("Just got my new M Performance exhaust. The sound is unreal! 🔥");
-        p1.setImageUrl("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80");
-        p1.setAdditionalImageUrl("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80");
+        p1.setImageUrl("/images/community-bmw-rear.jpg");
+        p1.setAdditionalImageUrl("/images/community-bmw-exhaust.jpg");
         p1.setLikesCount(124);
         p1.setCommentsCount(18);
         postRepository.save(p1);
